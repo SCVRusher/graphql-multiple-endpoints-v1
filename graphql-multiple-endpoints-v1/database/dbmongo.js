@@ -1,7 +1,9 @@
 import mongoose from "mongoose"
 
 //setup and connect nosql mongodb database on external database connection
-const mongo = mongoose.connect('mongodb://mydbinfo');
+const mongo = mongoose.connect('mongodb://mydbinfo', {
+    useNewUrlParser: true
+});
 mongoose.connection.on('connected', () => console.log('Connected'));
 mongoose.connection.on('error', () => console.log('Connection failed with - ', err));
 
